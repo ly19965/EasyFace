@@ -1,0 +1,5 @@
+torch
+torchvision
+-r requirements/framework.txt
+-r requirements/cv.txt
+-r requirements/tests.txt

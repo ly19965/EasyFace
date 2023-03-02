@@ -1,0 +1,6 @@
+opencv-python
+easydict
+easyrobust
+datasets
+mmdet
+openmim
