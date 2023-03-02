@@ -12,7 +12,7 @@
 </h4>
 
 # DamoFD模型介绍
-人脸检测关键点模型DamoFD，被ICLR2023录取([论文地址](https://openreview.net/forum?id=NkJOhtNKX91)), 这个项目中开源的模型是在DamoFD增加了关键点分支，论文原文代码见[项目地址]()，论文解析详见[解析]()。
+人脸检测关键点模型DamoFD，被ICLR2023录取([论文地址](https://openreview.net/forum?id=NkJOhtNKX91)), 这个项目中开源的模型是在DamoFD增加了关键点分支，论文原文代码见[项目地址](https://github.com/ly19965/DamoFD)，论文解析详见[解析]()。
 
 ## 快速使用
 
