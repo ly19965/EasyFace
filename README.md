@@ -29,7 +29,7 @@
 
 <!--- 🔥 **`2023-03-20`**：新增DamoFR人脸识别模型，基于Vit Backbone 围绕data-centric以及patch-level hard example  mining策略重新设计了Transformer-based Small/Medium/Large 人脸识别backbone，效果sota，已release不同算力下的sota人脸识别，口罩人脸识别DamoFR模型，[**paper**]() and [**project**]()；-->
 
-🔥 **`2023-03-10`**：新增DamoFD（ICLR23）人脸检测关键点模型，基于SCRFD框架进一步搜索了FD-friendly backbone结构。 在0.5/2.5/10/34 GFlops VGA分辨率的算力约束条件下性能均超过SCRFD。其中提出的$量级的检测器DDSAR-0.5G在VGA分辨率0.5GFlops条件下WiderFace上hard集精度为71.03(超过SCRFD 2.5个点)，欢迎大家一键使用(支持训练和推理)，[**paper**](https://openreview.net/forum?id=NkJOhtNKX91)。
+🔥 **`2023-03-10`**：新增DamoFD（ICLR23）人脸检测关键点模型，基于SCRFD框架进一步搜索了FD-friendly backbone结构。 在0.5/2.5/10/34 GFlops VGA分辨率的算力约束条件下性能均超过SCRFD。其中提出的轻量级的检测器DDSAR-0.5G在VGA分辨率0.5GFlops条件下WiderFace上hard集精度为71.03(超过SCRFD 2.5个点)，欢迎大家一键使用(支持训练和推理)，[**paper**](https://openreview.net/forum?id=NkJOhtNKX91)。
 
 🔥  **`2023-03-10`**：新增4个人脸检测模型，包括DamoFD，MogFace，RetinaFace，Mtcnn。
 
@@ -43,7 +43,7 @@
 - ['damo/cv_ddsar_face-detection_iclr23-damofd', 'damo/cv_resnet101_face-detection_cvpr22papermogface',  'damo/cv_resnet50_face-detection_retinaface', 'damo/cv_manual_face-detection_mtcnn']
 
 ### 训练
-🔥 **`人脸检测`**：
+🔥 **`人脸检测`**
 - DamoFD
 - ['damo/cv_ddsar_face-detection_iclr23-damofd']
 
