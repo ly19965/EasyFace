@@ -91,11 +91,11 @@ gt_info = gen_gt_info(img_gt)
 pred_info = {}
 iou_th = 0.5
 thresh_num = 1000
-face_detection_func = pipeline(Tasks.face_detection, model=model_id)
 count_face = 0
 pr_curve = np.zeros((thresh_num, 2)).astype('float')
 for img_name in os.listdir(img_dir):
     abs_img_name = osp.join(img_dir, img_name)
+    face_detection_func = pipeline(Tasks.face_detection, model=model_id)
     result = face_detection_func(abs_img_name)
     pred_info = np.concatenate([result['boxes'], np.array(result['scores'])[:,np.newaxis]], axis=1)
     gt_box = np.array(gt_info[img_name])
