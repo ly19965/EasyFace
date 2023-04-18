@@ -77,6 +77,7 @@ import os.path as osp
 import cv2
 import os
 import numpy as np
+import torch
 from modelscope.msdatasets import MsDataset
 from modelscope.pipelines import pipeline
 from modelscope.utils.constant import Tasks
@@ -93,18 +94,27 @@ iou_th = 0.5
 thresh_num = 1000
 count_face = 0
 pr_curve = np.zeros((thresh_num, 2)).astype('float')
+
+#ft_path = '/tmp/tmpoyakm4k4/epoch_641.pth'
+
 for img_name in os.listdir(img_dir):
     abs_img_name = osp.join(img_dir, img_name)
     face_detection_func = pipeline(Tasks.face_detection, model=model_id)
+
+    #face_detection_func.model.detector.module.load_state_dict(torch.load(ft_path)['state_dict'])
+
     result = face_detection_func(abs_img_name)
-    pred_info = np.concatenate([result['boxes'], np.array(result['scores'])[:,np.newaxis]], axis=1)
+    if len(result['boxes']) == 0:
+        pred_info = np.array([[0,0,0,0,0]]) 
+    else:
+        pred_info = np.concatenate([result['boxes'], np.array(result['scores'])[:,np.newaxis]], axis=1)
     gt_box = np.array(gt_info[img_name])
     pred_recall, proposal_list = image_eval(pred_info, gt_box, iou_th)
     _img_pr_info, fp = img_pr_info(thresh_num, pred_info, proposal_list, pred_recall)
     pr_curve += _img_pr_info
     count_face += gt_box.shape[0]
-    
-pr_curve = dataset_pr_info(thresh_num, pr_curve, count_face)
+    pr_curve = dataset_pr_info(thresh_num, pr_curve, count_face)
+
 propose = pr_curve[:, 0]
 recall = pr_curve[:, 1]
 for srecall in np.arange(0.1, 1.0001, 0.1):
