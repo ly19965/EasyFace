@@ -113,8 +113,8 @@ for img_name in os.listdir(img_dir):
     _img_pr_info, fp = img_pr_info(thresh_num, pred_info, proposal_list, pred_recall)
     pr_curve += _img_pr_info
     count_face += gt_box.shape[0]
-    pr_curve = dataset_pr_info(thresh_num, pr_curve, count_face)
 
+pr_curve = dataset_pr_info(thresh_num, pr_curve, count_face)
 propose = pr_curve[:, 0]
 recall = pr_curve[:, 1]
 for srecall in np.arange(0.1, 1.0001, 0.1):
